@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PARADOX '26 — Admin Control Deck</title>
+  <meta name="description" content="PARADOX '26 8-Hour Hackathon Timer Admin Control Panel">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="scanlines"></div>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="brand"><a href="index.html"><img src="image.png" alt="LANCE Logo"></a></div>
+    <div class="paradox"><a href="index.html"><img src="paradox logo.png" alt="PARADOX Logo"></a></div>
+    <div class="sponsor"><img src="avis.png" alt="Avis Worldwide Logo"></div>
+  </header>
+
+  <main class="admin-main">
+    <!-- SECTION 1: AUTHENTICATION SCREEN -->
+    <section id="auth-section" class="admin-card auth-card">
+      <div class="admin-header-badge">⚡ LEVEL 4 ACCESS ONLY ⚡</div>
+      <h1 class="admin-title">ADMIN TERMINAL</h1>
+      <p class="admin-subtext">ENTER OPERATOR CREDENTIALS TO CONTROL THE TIMER</p>
+      
+      <form id="login-form" class="auth-form" onsubmit="return false;">
+        <div class="input-group">
+          <label for="admin-username">> OPERATOR_ID (USERNAME):</label>
+          <input type="text" id="admin-username" placeholder="ENTER USERNAME..." autocomplete="username" autofocus required>
+        </div>
+
+        <div class="input-group">
+          <label for="admin-passcode">> PASSCODE (PASSWORD):</label>
+          <div class="pass-wrapper">
+            <input type="password" id="admin-passcode" placeholder="ENTER PASSWORD..." autocomplete="current-password" required>
+            <button type="button" id="toggle-pass-btn" class="icon-toggle" title="Toggle visibility">👁</button>
+          </div>
+        </div>
+        
+        <div id="auth-error" class="auth-error hidden">❌ ACCESS DENIED: INVALID USERNAME OR PASSWORD</div>
+        
+        <button type="submit" id="login-btn" class="pixel-btn login-btn">AUTHENTICATE</button>
+        <div class="auth-hint">LOGIN: USER: <code>admin</code> | PASS: <code>paradox2026</code></div>
+      </form>
+    </section>
+
+    <!-- SECTION 2: ADMIN CONTROL DASHBOARD -->
+    <section id="dashboard-section" class="dashboard-section hidden">
+      <div class="dashboard-topbar">
+        <div class="admin-status-pill">
+          <span class="status-dot pulsing"></span>
+          <span>AUTHENTICATED: <b id="display-user-tag" class="admin-user-tag">ROOT_ADMIN</b></span>
+        </div>
+        <div class="dash-actions">
+          <a href="index.html" target="_blank" class="pixel-link-btn" title="Open Public Countdown Screen">📺 VIEW LIVE SCREEN</a>
+          <button id="logout-btn" class="pixel-btn danger-btn sm-btn">LOGOUT</button>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+        <!-- LEFT: LIVE TIMER MIRROR & PRIMARY CONTROLS -->
+        <div class="dash-col">
+          <!-- LIVE MIRROR -->
+          <div class="admin-card">
+            <div class="card-title">🖥️ LIVE TIMER STATUS MIRROR</div>
+            <div class="countdown-panel admin-mirror-panel">
+              <div class="panel-title">SYSTEM STATUS: <span id="mirror-status-label">INITIALIZING...</span></div>
+              <div id="admin-countdown" class="countdown">
+                <div class="time-box"><strong id="admin-days">00</strong><span>DAYS</span></div>
+                <div class="colon">:</div>
+                <div class="time-box"><strong id="admin-hours">08</strong><span>HOURS</span></div>
+                <div class="colon">:</div>
+                <div class="time-box"><strong id="admin-minutes">00</strong><span>MIN</span></div>
+                <div class="colon">:</div>
+                <div class="time-box"><strong id="admin-seconds">00</strong><span>SEC</span></div>
+              </div>
+              <div id="mirror-badge" class="mirror-state-badge state-waiting">STATUS: WAITING TO START</div>
+            </div>
+
+            <!-- PRIMARY CONTROLS -->
+            <div class="primary-controls">
+              <button id="ctrl-start" class="pixel-btn success-btn">▶ START</button>
+              <button id="ctrl-pause" class="pixel-btn warning-btn" disabled>⏸ PAUSE</button>
+              <button id="ctrl-reset" class="pixel-btn danger-btn">🔄 RESET</button>
+            </div>
+          </div>
+
+          <!-- QUICK ADJUSTMENTS -->
+          <div class="admin-card">
+            <div class="card-title">⚡ QUICK TIME ADJUSTMENTS</div>
+            <p class="card-desc">Add or subtract time dynamically while timer is running or waiting.</p>
+            <div class="adjust-btn-grid">
+              <button class="pixel-btn adjust-btn" data-adjust="900000">+15 MIN</button>
+              <button class="pixel-btn adjust-btn" data-adjust="1800000">+30 MIN</button>
+              <button class="pixel-btn adjust-btn" data-adjust="3600000">+1 HOUR</button>
+              <button class="pixel-btn adjust-btn danger-adjust" data-adjust="-900000">-15 MIN</button>
+              <button class="pixel-btn adjust-btn danger-adjust" data-adjust="-1800000">-30 MIN</button>
+              <button class="pixel-btn adjust-btn danger-adjust" data-adjust="-3600000">-1 HOUR</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: CUSTOM DURATION, TARGET END TIME & SYSTEM BROADCAST -->
+        <div class="dash-col">
+          <!-- CONFIGURE DURATION -->
+          <div class="admin-card">
+            <div class="card-title">⏱️ SET CUSTOM DURATION</div>
+            <p class="card-desc">Specify exact duration for the hackathon countdown.</p>
+            
+            <div class="duration-inputs">
+              <div class="time-input-group">
+                <label for="dur-hours">HOURS</label>
+                <input type="number" id="dur-hours" min="0" max="99" value="8">
+              </div>
+              <div class="time-input-group">
+                <label for="dur-mins">MINUTES</label>
+                <input type="number" id="dur-mins" min="0" max="59" value="0">
+              </div>
+              <div class="time-input-group">
+                <label for="dur-secs">SECONDS</label>
+                <input type="number" id="dur-secs" min="0" max="59" value="0">
+              </div>
+            </div>
+
+            <!-- PRESETS -->
+            <div class="preset-row">
+              <span>PRESETS:</span>
+              <button type="button" class="preset-btn" data-h="8" data-m="0">8 HOURS</button>
+              <button type="button" class="preset-btn" data-h="6" data-m="0">6 HOURS</button>
+              <button type="button" class="preset-btn" data-h="4" data-m="0">4 HOURS</button>
+              <button type="button" class="preset-btn" data-h="2" data-m="0">2 HOURS</button>
+              <button type="button" class="preset-btn" data-h="1" data-m="0">1 HOUR</button>
+              <button type="button" class="preset-btn" data-h="0" data-m="30">30 MIN</button>
+            </div>
+
+            <button id="apply-duration-btn" class="pixel-btn info-btn full-w">APPLY DURATION</button>
+          </div>
+
+          <!-- SET TARGET END TIMESTAMP -->
+          <div class="admin-card">
+            <div class="card-title">🎯 SET SPECIFIC TARGET END TIME</div>
+            <p class="card-desc">Set an exact date & time when the hackathon should conclude.</p>
+            <div class="input-group">
+              <label for="target-datetime">> TARGET DATE & TIME:</label>
+              <input type="datetime-local" id="target-datetime" class="retro-datetime-input">
+            </div>
+            <button id="apply-target-btn" class="pixel-btn cyan-btn full-w">SET TARGET END TIME</button>
+          </div>
+
+          <!-- CUSTOM SYSTEM STATUS BROADCAST -->
+          <div class="admin-card">
+            <div class="card-title">📢 CUSTOM STATUS MESSAGE BROADCAST</div>
+            <p class="card-desc">Override status text displayed on public screens in real-time.</p>
+            <div class="input-group">
+              <label for="custom-status-input">> STATUS BANNER TEXT:</label>
+              <input type="text" id="custom-status-input" placeholder="e.g. LUNCH BREAK • RESUMING AT 2:00 PM" maxlength="60">
+            </div>
+            <div class="btn-cluster">
+              <button id="apply-status-btn" class="pixel-btn sm-btn">BROADCAST MESSAGE</button>
+              <button id="reset-status-btn" class="pixel-btn sm-btn gray-btn">RESTORE DEFAULT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUDIT LOG CONSOLE -->
+      <div class="admin-card console-card">
+        <div class="card-title">📜 OPERATIONAL LOG STREAM</div>
+        <div id="log-terminal" class="log-terminal">
+          <div class="log-entry log-system">[SYS] Admin terminal initialized. Pure client-side operation (No backend/Python required).</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© LANCE • CSE • CE KIDANGOOR</span>
+    <span class="handle">PARADOX '26 ADMIN CONSOLE</span>
+    <a href="index.html" class="footer-back-link">← RETURN TO MAIN DISPLAY</a>
+  </footer>
+
+  <script src="admin.js"></script>
+</body>
+</html>

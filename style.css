@@ -59,6 +59,8 @@ background:#0a1936;border:8px solid #215aa5;box-shadow:10px 10px 0 #020817}
 .player{position:absolute;left:calc(50% - 80px);bottom:0;width:65px;height:65px;background:#c43f83;border-radius:50% 50% 8px 8px}
 footer{height:46px;padding:0 5vw;display:flex;justify-content:space-between;align-items:center;
 border-top:2px solid #123466;color:#6685b8;font-size:16px}.handle{color:#fff}
+.admin-quick-link{color:var(--cyan);text-decoration:none;font-family:'Press Start 2P',monospace;font-size:9px;padding:4px 8px;border:1px solid #1c4b8b;transition:all .15s}
+.admin-quick-link:hover{background:var(--cyan);color:#030b20;border-color:#fff}
 @media(max-width:800px){
 .topbar{height:72px;padding:12px 4vw}.brand img{height:30px}.paradox img{height:25px}.sponsor img{height:35px}
 .college{font-size:10px}.dept{font-size:8px}.pixel-badge{font-size:11px;transform:none}.subtitle{font-size:11px;transform:none}

@@ -1,0 +1,552 @@
+/* ADMIN CONTROL CENTER STYLES */
+
+.admin-main {
+  min-height: calc(100vh - 140px);
+  padding: 20px 4vw 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* AUTH SECTION */
+.auth-card {
+  max-width: 580px;
+  margin: 60px auto;
+  text-align: center;
+  background: rgba(7, 20, 47, 0.95);
+  border: 4px solid var(--pink);
+  box-shadow: 10px 10px 0 #020714, 0 0 35px rgba(255, 41, 217, 0.25);
+  padding: 36px 30px;
+}
+
+.admin-header-badge {
+  display: inline-block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  background: var(--yellow);
+  color: #000;
+  padding: 6px 12px;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.admin-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(24px, 4vw, 36px);
+  color: #fff;
+  text-shadow: 4px 4px 0 #153a79;
+  margin-bottom: 12px;
+}
+
+.admin-subtext {
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  color: var(--muted);
+  margin-bottom: 28px;
+  letter-spacing: 1px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: left;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: var(--cyan);
+}
+
+.pass-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.pass-wrapper input,
+.input-group input,
+.retro-datetime-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: #040c1f;
+  border: 3px solid #2458a0;
+  color: #fff;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pass-wrapper input:focus,
+.input-group input:focus,
+.retro-datetime-input:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 12px rgba(33, 199, 255, 0.4);
+}
+
+.icon-toggle {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.icon-toggle:hover {
+  color: #fff;
+}
+
+.auth-error {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #ff3847;
+  background: rgba(255, 56, 71, 0.15);
+  border: 2px solid #ff3847;
+  padding: 10px;
+  text-align: center;
+  animation: shake 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-2px, 0, 0); }
+  20%, 80% { transform: translate3d(3px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+.login-btn {
+  width: 100%;
+  font-size: 16px;
+  padding: 16px;
+  margin-top: 6px;
+}
+
+.auth-hint {
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  color: #6584af;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.auth-hint code {
+  color: var(--yellow);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+}
+
+/* DASHBOARD TOPBAR */
+.dashboard-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  background: #07152f;
+  border: 3px solid #1f4f96;
+  padding: 12px 20px;
+  margin-bottom: 24px;
+  box-shadow: 6px 6px 0 #020714;
+}
+
+.admin-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  color: #aed1ff;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  background: #2eff7b;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #2eff7b;
+}
+
+.pulsing {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 255, 123, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(46, 255, 123, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 255, 123, 0); }
+}
+
+.admin-user-tag {
+  color: var(--yellow);
+}
+
+.dash-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pixel-link-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  padding: 10px 14px;
+  background: #11346d;
+  color: #fff;
+  text-decoration: none;
+  border: 2px solid var(--blue);
+  box-shadow: 3px 3px 0 #020714;
+  transition: transform 0.1s, background 0.1s;
+}
+
+.pixel-link-btn:hover {
+  background: var(--blue);
+  color: #030b20;
+}
+
+.pixel-link-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+/* DASHBOARD GRID */
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.dash-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.admin-card {
+  background: rgba(5, 17, 43, 0.94);
+  border: 3px solid #1b4d9b;
+  box-shadow: 8px 8px 0 #020714;
+  padding: 22px;
+  position: relative;
+}
+
+.card-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 13px;
+  color: var(--yellow);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-desc {
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 18px;
+  line-height: 1.3;
+}
+
+/* MIRROR PANEL */
+.admin-mirror-panel {
+  margin: 10px 0 18px 0;
+  padding: 16px;
+  border-color: #2769cf;
+}
+
+.admin-mirror-panel .countdown {
+  gap: 8px;
+}
+
+.admin-mirror-panel .time-box {
+  min-width: 90px;
+  padding: 12px 6px;
+}
+
+.admin-mirror-panel .time-box strong {
+  font-size: 24px;
+}
+
+.admin-mirror-panel .time-box span {
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.admin-mirror-panel .colon {
+  font-size: 22px;
+}
+
+.mirror-state-badge {
+  margin-top: 14px;
+  padding: 8px 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  text-align: center;
+  letter-spacing: 1px;
+  border: 2px solid;
+}
+
+.state-waiting {
+  background: rgba(255, 210, 31, 0.15);
+  color: var(--yellow);
+  border-color: var(--yellow);
+}
+
+.state-running {
+  background: rgba(46, 255, 123, 0.15);
+  color: #2eff7b;
+  border-color: #2eff7b;
+}
+
+.state-paused {
+  background: rgba(255, 139, 26, 0.15);
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+.state-finished {
+  background: rgba(255, 41, 217, 0.15);
+  color: var(--pink);
+  border-color: var(--pink);
+}
+
+/* CONTROLS */
+.primary-controls {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 12px;
+}
+
+.success-btn {
+  background: #11a84f;
+  border-color: #38ef80;
+}
+.success-btn:hover:not(:disabled) {
+  background: #18cf64;
+}
+
+.warning-btn {
+  background: #cc7000;
+  border-color: var(--orange);
+}
+.warning-btn:hover:not(:disabled) {
+  background: #f08400;
+}
+
+.danger-btn {
+  background: #be1c25;
+  border-color: #ff525c;
+}
+.danger-btn:hover:not(:disabled) {
+  background: #e6232f;
+}
+
+.info-btn {
+  background: #1360bd;
+  border-color: #4da0ff;
+}
+.info-btn:hover:not(:disabled) {
+  background: #237af0;
+}
+
+.cyan-btn {
+  background: #0087b3;
+  border-color: var(--cyan);
+}
+.cyan-btn:hover:not(:disabled) {
+  background: #00a6dc;
+}
+
+.gray-btn {
+  background: #374661;
+  border-color: #657d9e;
+}
+.gray-btn:hover:not(:disabled) {
+  background: #4a5d80;
+}
+
+.sm-btn {
+  font-size: 11px;
+  padding: 10px 14px;
+}
+
+.full-w {
+  width: 100%;
+}
+
+.pixel-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: grayscale(0.8);
+}
+
+/* TIME ADJUSTERS */
+.adjust-btn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.adjust-btn {
+  font-size: 11px;
+  padding: 12px 8px;
+  background: #0d2856;
+  border-color: #357bd9;
+}
+
+.adjust-btn:hover:not(:disabled) {
+  background: #17428a;
+}
+
+.danger-adjust {
+  background: #401018;
+  border-color: #b33945;
+  color: #ff9da6;
+}
+
+.danger-adjust:hover:not(:disabled) {
+  background: #611925;
+}
+
+/* DURATION FORM */
+.duration-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.time-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.time-input-group label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: #a5b6d7;
+  text-align: center;
+}
+
+.time-input-group input {
+  padding: 12px 8px;
+  text-align: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 18px;
+  background: #030a1c;
+  border: 3px solid #2458a0;
+  color: #fff;
+  outline: none;
+}
+
+.preset-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: #7995be;
+}
+
+.preset-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  padding: 6px 10px;
+  background: #0c234a;
+  color: var(--cyan);
+  border: 2px solid #1c4b8b;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.preset-btn:hover {
+  background: var(--cyan);
+  color: #030b20;
+  border-color: #fff;
+}
+
+.btn-cluster {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+/* OPERATIONAL LOG STREAM */
+.console-card {
+  margin-top: 8px;
+}
+
+.log-terminal {
+  background: #020714;
+  border: 3px solid #15386f;
+  padding: 14px 16px;
+  height: 160px;
+  overflow-y: auto;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  color: #8cffae;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.log-entry {
+  line-height: 1.2;
+  word-break: break-all;
+}
+
+.log-system { color: #5be7ff; }
+.log-action { color: #ffd21f; }
+.log-warn { color: #ff8b1a; }
+.log-danger { color: #ff4d5a; }
+
+/* UTILITY */
+.hidden {
+  display: none !important;
+}
+
+.footer-back-link {
+  color: var(--cyan);
+  text-decoration: none;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  transition: color 0.15s;
+}
+
+.footer-back-link:hover {
+  color: var(--yellow);
+  text-decoration: underline;
+}
+
+@media(max-width: 960px) {
+  .dash-grid {
+    grid-template-columns: 1fr;
+  }
+  .primary-controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 600px) {
+  .adjust-btn-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .duration-inputs {
+    grid-template-columns: 1fr;
+  }
+}
