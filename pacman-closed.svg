@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" shape-rendering="crispEdges">
+  <!-- Pac-Man Closed Mouth (Classic 8-Bit Pixel Art) -->
+  <rect x="8" y="2" width="2" height="2" fill="#000000"/>
+  <path fill="#ffff00" d="
+    M5 0h6v1H5z
+    M3 1h10v1H3z
+    M2 2h6v2H2z
+    M10 2h4v2h-4z
+    M1 3h7v1H1z
+    M10 3h5v1h-5z
+    M1 4h14v1H1z
+    M0 5h16v1H0z
+    M0 6h16v1H0z
+    M0 7h16v2H0z
+    M0 9h16v1H0z
+    M0 10h16v1H0z
+    M1 11h14v1H1z
+    M1 12h14v1H1z
+    M2 13h12v1H2z
+    M3 14h10v1H3z
+    M5 15h6v1H5z
+  "/>
+</svg>

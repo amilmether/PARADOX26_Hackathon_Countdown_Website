@@ -427,6 +427,31 @@ document.querySelectorAll(".preset-btn").forEach((btn) => {
   });
 });
 
+function copySyncLink() {
+  const currentEnd = timerState.endTime || (Date.now() + (timerState.remainingMs || timerState.durationMs));
+  const baseUrl = window.location.origin + window.location.pathname.replace("admin.html", "index.html");
+  let syncUrl = `${baseUrl}?end=${currentEnd}`;
+  if (timerState.customStatus) {
+    syncUrl += `&status=${encodeURIComponent(timerState.customStatus)}`;
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(syncUrl).then(() => {
+      logMessage("Synced URL copied to clipboard! Share with other phones.", "action");
+      alert("✅ Synced link copied to clipboard!\n\nOpen this on any phone/device to view the exact synchronized timer:\n" + syncUrl);
+    }).catch(() => {
+      prompt("Copy this synchronized link for other phones:", syncUrl);
+    });
+  } else {
+    prompt("Copy this synchronized link for other phones:", syncUrl);
+  }
+}
+
+const copySyncLinkBtn = document.getElementById("copy-sync-link-btn");
+if (copySyncLinkBtn) {
+  copySyncLinkBtn.addEventListener("click", copySyncLink);
+}
+
 applyDurationBtn.addEventListener("click", applyCustomDuration);
 applyTargetBtn.addEventListener("click", applyTargetDateTime);
 applyStatusBtn.addEventListener("click", applyCustomStatus);

@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="arcade.css">
 </head>
 <body>
   <div class="scanlines"></div>
@@ -27,7 +28,35 @@
       <p class="dept">DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING</p>
 
       <div class="pixel-badge">8-HOUR</div>
-      <h1>PARANOVA</h1>
+      <div class="arcade-heading-stage" id="arcade-heading-stage" aria-label="PARANOVA Hackathon">
+        <h1 class="arcade-title" id="arcade-title">
+          <span class="word word-paranova" id="word-paranova">
+            <span class="letter" data-char="P">P</span>
+            <span class="letter" data-char="A">A</span>
+            <span class="letter" data-char="R">R</span>
+            <span class="letter" data-char="A">A</span>
+            <span class="letter" data-char="N">N</span>
+            <span class="letter" data-char="O">O</span>
+            <span class="letter" data-char="V">V</span>
+            <span class="letter" data-char="A">A</span>
+          </span>
+          <span class="word word-hackathon hidden" id="word-hackathon">
+            <span class="letter" data-char="H">H</span>
+            <span class="letter" data-char="A">A</span>
+            <span class="letter" data-char="C">C</span>
+            <span class="letter" data-char="K">K</span>
+            <span class="letter" data-char="A">A</span>
+            <span class="letter" data-char="T">T</span>
+            <span class="letter" data-char="H">H</span>
+            <span class="letter" data-char="O">O</span>
+            <span class="letter" data-char="N">N</span>
+          </span>
+        </h1>
+        <div class="arcade-actor pacman-actor" id="pacman-actor" aria-hidden="true">
+          <div class="pacman-sprite"></div>
+        </div>
+        <div class="arcade-particles" id="arcade-particles" aria-hidden="true"></div>
+      </div>
       <div class="subtitle">INTER-COLLEGE</div>
 
       <p class="powered">POWERED BY <b>AVIS</b>WORLDWIDE KOTTAYAM</p>
@@ -84,5 +113,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="arcade.js"></script>
 </body>
 </html>

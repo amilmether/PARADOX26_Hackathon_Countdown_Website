@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 26" shape-rendering="crispEdges">
+  <!-- Mario Jumping Pixel Art (Asset 1) -->
+  <!-- Cape / Trail Wing (White & Light Grey with Red Star) -->
+  <path fill="#ffffff" d="
+    M3 11h4v4H3z
+    M4 12h5v4H4z
+    M5 14h5v4H5z
+  "/>
+  <path fill="#cfd9e8" d="
+    M3 13h1v3H3z
+    M4 15h1v3H4z
+    M5 17h2v2H5z
+  "/>
+  <!-- Star on cape -->
+  <rect x="2" y="13" width="1" height="1" fill="#e52521"/>
+
+  <!-- Red Cap -->
+  <path fill="#e52521" d="
+    M9 4h4v2H9z
+    M8 5h6v2H8z
+    M7 6h8v2H7z
+    M6 7h11v2H6z
+    M8 9h9v1H8z
+    M9 13h5v2H9z
+  "/>
+  <path fill="#991000" d="
+    M6 8h2v3H6z
+    M7 10h3v2H7z
+  "/>
+
+  <!-- Skin Tone -->
+  <path fill="#fce4b8" d="
+    M8 9h4v2H8z
+    M9 10h6v3H9z
+    M11 11h7v2h-7z
+    M10 12h6v2h-6z
+    M18 15h2v2h-2z
+  "/>
+  <!-- Mustache & Eye -->
+  <path fill="#1a1a1a" d="
+    M13 11h4v2h-4z
+    M13 9h1v1h-1z
+  "/>
+  <rect x="13" y="9" width="1" height="1" fill="#0070ec"/>
+
+  <!-- Blue Overalls (In jump pose) -->
+  <path fill="#005fd9" d="
+    M11 14h5v6h-5z
+    M9 15h3v4H9z
+    M14 16h4v4h-4z
+    M8 18h4v4H8z
+  "/>
+  <path fill="#00358a" d="
+    M10 19h5v3h-5z
+    M8 20h2v2H8z
+  "/>
+  <!-- Yellow Button -->
+  <rect x="14" y="15" width="1" height="1" fill="#fcd000"/>
+
+  <!-- Brown Shoes (In jump/run pose) -->
+  <path fill="#663814" d="
+    M6 16h3v6H6z
+    M17 16h3v5h-3z
+    M16 20h2v2h-2z
+  "/>
+</svg>

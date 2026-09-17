@@ -1,0 +1,201 @@
+/* ==========================================================================
+   PARANOVA ARCADE TRANSFORMATION STYLES
+   Pac-Man Classic 8-Bit Interactive Animation System (PARANOVA ⮂ HACKATHON)
+   Exact Centering • Zero Layout Shift • Responsive
+   ========================================================================== */
+
+/* Stage container occupying the exact heading position, perfectly centered */
+.arcade-heading-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 8px auto;
+  text-align: center;
+  user-select: none;
+  overflow: visible;
+}
+
+/* Heading Typography matching original styles and mathematically centered */
+.arcade-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(22px, 5.2vw, 76px);
+  letter-spacing: clamp(1px, 0.25vw, 3px);
+  text-shadow: clamp(3px, 0.5vw, 6px) clamp(3px, 0.5vw, 6px) 0 #153a79;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "heading";
+  place-items: center;
+  position: relative;
+  z-index: 5;
+  white-space: nowrap;
+  line-height: 1.1;
+  transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Both words share the exact same centered grid cell */
+.arcade-title .word {
+  grid-area: heading;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  white-space: nowrap;
+  margin: 0 auto;
+}
+
+.arcade-title .word.word-hackathon {
+  color: #fff;
+}
+
+.arcade-title .word.word-paranova {
+  color: #fff;
+}
+
+.arcade-title .word.hidden {
+  display: none !important;
+}
+
+/* Individual letter wrappers to allow zero-reflow eating (space preserved) */
+.arcade-title .letter {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  transition: opacity 0.08s ease, transform 0.08s ease;
+  transform-origin: center center;
+}
+
+.arcade-title .letter.eaten {
+  opacity: 0 !important;
+  transform: scale(0) !important;
+  visibility: hidden !important;
+  pointer-events: none;
+}
+
+.arcade-title .letter.eating-flash {
+  animation: letterEatFlash 0.12s ease-out forwards;
+}
+
+@keyframes letterEatFlash {
+  0% { transform: scale(1.3) rotate(5deg); filter: brightness(3); color: #ffd21f; }
+  50% { transform: scale(0.6) rotate(-5deg); filter: brightness(2); }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+/* Word Transition Glitch & Scale Effects */
+.word-glitch-in {
+  animation: arcadeWordGlitch 0.45s steps(2, start) forwards;
+}
+
+@keyframes arcadeWordGlitch {
+  0% { transform: scale(0.7) translateY(-6px); opacity: 0; filter: drop-shadow(0 0 15px #21c7ff) hue-rotate(90deg); }
+  25% { transform: scale(1.08) translateY(3px); opacity: 0.8; filter: drop-shadow(0 0 25px #ff29d9); }
+  50% { transform: scale(0.96) translateY(-1px); opacity: 1; }
+  75% { transform: scale(1.02) translateY(1px); }
+  100% { transform: scale(1) translateY(0); opacity: 1; filter: none; }
+}
+
+/* ==========================================================================
+   ACTORS / CHARACTERS (Absolute positioning inside stage)
+   ========================================================================== */
+.arcade-actor {
+  position: absolute;
+  pointer-events: none;
+  z-index: 99 !important;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  will-change: transform, left, top;
+}
+
+.arcade-actor.active {
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* --------------------------------------------------------------------------
+   PAC-MAN SPRITE (Uploaded 8-Bit Pixel Art Asset)
+   -------------------------------------------------------------------------- */
+.pacman-actor {
+  width: clamp(32px, 5.5vw, 72px);
+  height: clamp(32px, 5.5vw, 72px);
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  z-index: 100 !important;
+}
+
+.pacman-sprite {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url('pacman-open.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, 0.7));
+  animation: pacmanChompFrames 0.22s steps(1) infinite;
+}
+
+@keyframes pacmanChompFrames {
+  0%, 100% { background-image: url('pacman-open.svg'); }
+  50% { background-image: url('pacman-closed.svg'); }
+}
+
+.pacman-actor.face-left .pacman-sprite {
+  transform: scaleX(-1);
+}
+
+/* ==========================================================================
+   PARTICLES & BURST EFFECTS
+   ========================================================================== */
+.arcade-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 15;
+  overflow: visible;
+}
+
+.arcade-particle {
+  position: absolute;
+  width: clamp(6px, 1.2vw, 14px);
+  height: clamp(6px, 1.2vw, 14px);
+  border-radius: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.particle-star {
+  background: #ffe600;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  box-shadow: 0 0 10px #ffe600;
+}
+
+.particle-pixel {
+  background: #ff29d9;
+  box-shadow: 0 0 8px #ff29d9;
+}
+
+.particle-coin {
+  background: #ffd21f;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  animation: coinSpin 0.5s linear infinite;
+}
+
+@keyframes coinSpin {
+  0% { transform: scaleX(1); }
+  50% { transform: scaleX(0.1); }
+  100% { transform: scaleX(1); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 800px) {
+  .arcade-title {
+    font-size: clamp(20px, 6.2vw, 42px);
+  }
+}
