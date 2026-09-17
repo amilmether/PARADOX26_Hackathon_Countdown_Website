@@ -1,0 +1,68 @@
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#030b20;--panel:#07142f;--white:#f7f7ff;--blue:#3b8cff;
+  --pink:#ff29d9;--red:#ef313b;--orange:#ff8b1a;--yellow:#ffd21f;
+  --cyan:#21c7ff;--muted:#8aa0c5;
+}
+html,body{min-height:100%;background:var(--bg);color:var(--white)}
+body{font-family:'VT323',monospace;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;
+background-image:radial-gradient(#2d65a9 1px,transparent 1px);background-size:22px 22px}
+.scanlines{position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.08;
+background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,#fff 4px)}
+.topbar{height:86px;display:flex;align-items:center;justify-content:space-between;padding:18px 5vw;
+font-family:'Press Start 2P',monospace;position:relative;z-index:2}
+.brand img{height:40px;width:auto;object-fit:contain}
+.paradox img{height:35px;width:auto;object-fit:contain}
+.sponsor img{height:45px;width:auto;object-fit:contain}
+main{min-height:calc(100vh - 132px)}
+.hero{text-align:center;position:relative;padding:12px 5vw 80px;max-width:1500px;margin:auto}
+.college,.dept,.powered{font-family:'Press Start 2P',monospace}
+.college{font-size:15px;margin:8px 0}.dept{font-size:13px;color:#dce7ff;margin-bottom:26px}
+.pixel-badge,.subtitle{display:inline-block;font-family:'Press Start 2P',monospace;padding:12px 18px}
+.pixel-badge{background:var(--pink);font-size:18px;transform:translateX(-60px);margin-top:5px}
+h1{font-family:'Press Start 2P',monospace;font-size:clamp(42px,8vw,108px);letter-spacing:3px;
+text-shadow:7px 7px 0 #153a79;margin:6px 0}
+.subtitle{background:var(--blue);font-size:20px;transform:translateX(70px);margin-top:-8px}
+.powered{font-size:11px;margin:22px 0;color:#fff}.powered b{color:#ef313b}
+.countdown-panel{max-width:980px;margin:30px auto 26px;background:rgba(5,17,43,.92);
+border:4px solid #1b4d9b;box-shadow:10px 10px 0 #020714,0 0 30px #082b68;padding:24px 22px}
+.panel-title{font-family:'Press Start 2P',monospace;font-size:12px;color:var(--cyan);margin-bottom:20px}
+.panel-title span{color:var(--yellow)}
+.countdown{display:flex;justify-content:center;align-items:center;gap:12px}
+.time-box{min-width:145px;padding:18px 10px;background:#081a3b;border:3px solid #2d7eff;
+box-shadow:inset 0 -7px 0 #051126}
+.time-box strong{display:block;font-family:'Press Start 2P',monospace;font-size:34px;color:#fff}
+.time-box span{display:block;margin-top:13px;color:#73b9ff;font-size:18px}
+.colon{font-family:'Press Start 2P';font-size:30px;color:var(--pink)}
+.status{font-family:'Press Start 2P';font-size:10px;color:#8cffae;margin-top:18px}
+.pixel-btn{font-family:'Press Start 2P',monospace;font-size:16px;padding:15px 25px;margin-top:20px;
+background:var(--pink);color:var(--white);border:4px solid #fff;box-shadow:5px 5px 0 #020714;
+cursor:pointer;transition:transform 0.1s;text-transform:uppercase}
+.pixel-btn:active{transform:translate(5px, 5px);box-shadow:none}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1100px;margin:auto}
+.info-card{display:flex;align-items:center;text-align:left;gap:15px;padding:15px 18px;background:#07152f;border:3px solid}
+.info-card .icon{font-size:28px}.info-card small{display:block;font-family:'Press Start 2P';font-size:8px;color:#a5b6d7}
+.info-card strong{display:block;font-family:'Press Start 2P';font-size:12px;margin-top:8px}
+.orange{border-color:var(--orange)}.yellow{border-color:var(--yellow)}.blue{border-color:var(--blue)}
+.pixel-scene{height:235px;position:relative;margin-top:30px;overflow:hidden;border-bottom:8px solid #142d5d}
+.cloud{position:absolute;width:130px;height:20px;background:#082653;box-shadow:20px 20px #082653,-20px 20px #082653}
+.c1{left:5%;top:35px}.c2{right:7%;top:85px}.moon{position:absolute;right:18%;top:22px;width:82px;height:82px;border-radius:50%;
+background:#154b91;box-shadow:inset 22px 0 #0b2b5b}
+.shelf{position:absolute;background:#1c4d85;height:8px;width:220px;display:flex;gap:35px;justify-content:center;align-items:flex-end}
+.shelf span{font-size:30px;transform:translateY(-8px)}.s1{left:9%;bottom:75px}.s2{right:10%;bottom:92px}
+.monitor{position:absolute;left:50%;bottom:42px;transform:translateX(-50%);width:310px;height:135px;
+background:#0a1936;border:8px solid #215aa5;box-shadow:10px 10px 0 #020817}
+.screen{height:100%;padding:18px;text-align:left;background:#06152d;color:#5be7ff;font:14px 'VT323';display:flex;flex-direction:column;gap:8px}
+.console{position:absolute;left:calc(50% + 175px);bottom:35px;width:90px;height:55px;background:#111e3b;border:6px solid #263f70}
+.desk{position:absolute;left:5%;right:5%;bottom:0;height:35px;background:#172f5d;box-shadow:0 -8px #0a1a39}
+.player{position:absolute;left:calc(50% - 80px);bottom:0;width:65px;height:65px;background:#c43f83;border-radius:50% 50% 8px 8px}
+footer{height:46px;padding:0 5vw;display:flex;justify-content:space-between;align-items:center;
+border-top:2px solid #123466;color:#6685b8;font-size:16px}.handle{color:#fff}
+@media(max-width:800px){
+.topbar{height:72px;padding:12px 4vw}.brand img{height:30px}.paradox img{height:25px}.sponsor img{height:35px}
+.college{font-size:10px}.dept{font-size:8px}.pixel-badge{font-size:11px;transform:none}.subtitle{font-size:11px;transform:none}
+.powered{font-size:8px}.countdown{gap:4px}.time-box{min-width:70px;padding:12px 4px}.time-box strong{font-size:17px}.time-box span{font-size:14px}.colon{font-size:17px}
+.info-grid{grid-template-columns:1fr}.pixel-scene{height:170px}.monitor{width:210px;height:100px}
+footer{font-size:11px;gap:8px}.footer span:last-child{display:none}
+}

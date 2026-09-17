@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PARADOX '26 — Hackathon Countdown</title>
+  <meta name="description" content="PARADOX '26 8-Hour Inter-College Hackathon countdown">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines"></div>
+
+  <header class="topbar">
+    <div class="brand"><img src="image.png" alt="LANCE Logo"></div>
+    <div class="paradox"><img src="paradox logo.png" alt="PARADOX Logo"></div>
+    <div class="sponsor"><img src="avis.png" alt="Avis Worldwide Logo"></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="college">COLLEGE OF ENGINEERING KIDANGOOR</p>
+      <p class="dept">DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING</p>
+
+      <div class="pixel-badge">8-HOUR</div>
+      <h1>HACKATHON</h1>
+      <div class="subtitle">INTER-COLLEGE</div>
+
+      <p class="powered">POWERED BY <b>AVIS</b>WORLDWIDE KOTTAYAM</p>
+
+      <section class="countdown-panel">
+        <div class="panel-title">⚡ SYSTEM STATUS: <span>HACKATHON START</span></div>
+        <div id="countdown" class="countdown">
+          <div class="time-box"><strong id="days">00</strong><span>DAYS</span></div>
+          <div class="colon">:</div>
+          <div class="time-box"><strong id="hours">00</strong><span>HOURS</span></div>
+          <div class="colon">:</div>
+          <div class="time-box"><strong id="minutes">00</strong><span>MIN</span></div>
+          <div class="colon">:</div>
+          <div class="time-box"><strong id="seconds">00</strong><span>SEC</span></div>
+        </div>
+        <div id="status" class="status">INITIALIZING...</div>
+        <button id="start-btn" class="pixel-btn">START HACKATHON</button>
+      </section>
+
+      <div class="info-grid">
+        <div class="info-card orange">
+          <span class="icon">◉</span>
+          <div><small>DATE</small><strong>17th SEPTEMBER</strong></div>
+        </div>
+        <div class="info-card yellow">
+          <span class="icon">★</span>
+          <div><small>PRIZE POOL</small><strong>₹10K</strong></div>
+        </div>
+        <div class="info-card blue">
+          <span class="icon">↗</span>
+          <div><small>REGISTRATION</small><strong>PARADOX.CE-KGR.ORG</strong></div>
+        </div>
+      </div>
+
+      <div class="pixel-scene" aria-hidden="true">
+        <div class="cloud c1"></div><div class="cloud c2"></div>
+        <div class="moon"></div>
+        <div class="shelf s1"><span>●</span><span>■</span><span>▲</span></div>
+        <div class="shelf s2"><span>★</span><span>●</span></div>
+        <div class="monitor">
+          <div class="screen"><span>&gt; BUILDING...</span><span>&gt; COMPILING...</span><span>&gt; READY_</span></div>
+        </div>
+        <div class="console"></div>
+        <div class="desk"></div>
+        <div class="player"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© LANCE • CSE • CE KIDANGOOR</span>
+    <span class="handle">@lance_cek</span>
+    <span>INSERT COIN • START CODING</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
